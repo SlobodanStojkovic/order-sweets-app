@@ -1,4 +1,6 @@
+import { Card } from "../Cart/Card";
 import classes from "./AvailableSweets.module.css";
+import { SweetItem } from "./SweetItem/SweetItem";
 
 const DUMMY_Sweets = [
   {
@@ -34,11 +36,18 @@ const DUMMY_Sweets = [
 export const AvailableSweets = (props) => {
   return (
     <section className={classes.sweets}>
-      <ul>
-        {DUMMY_Sweets.map((Sweet) => (
-          <li>{Sweet.name}</li>
-        ))}
-      </ul>
+      <Card>
+        <ul>
+          {DUMMY_Sweets.map((sweet) => (
+            <SweetItem
+              key={sweet.id}
+              name={sweet.name}
+              description={sweet.description}
+              price={sweet.price}
+            />
+          ))}
+        </ul>
+      </Card>
     </section>
   );
 };
