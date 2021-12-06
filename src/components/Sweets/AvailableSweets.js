@@ -2,7 +2,7 @@ import { Card } from "../UI/Card/Card";
 import classes from "./AvailableSweets.module.css";
 import { SweetItem } from "./SweetItem/SweetItem";
 
-const DUMMY_Sweets = [
+const DUMMY_SWEETS = [
     {
         id: "sweet1",
         name: "Chocolate cake",
@@ -15,7 +15,7 @@ const DUMMY_Sweets = [
         name: "Hot chocolate Spheres",
         description:
             "Dark chocolate spheres filled with hot chocolate mix, marshmallows and chocolate chips",
-        price: 22.5,
+        price: 22.99,
     },
     {
         id: "sweet3",
@@ -38,9 +38,10 @@ export const AvailableSweets = (props) => {
         <section className={classes.sweets}>
             <Card>
                 <ul>
-                    {DUMMY_Sweets.map((sweet) => (
+                    {DUMMY_SWEETS.map((sweet) => (
                         <SweetItem
                             key={sweet.id}
+                            id={sweet.id}
                             name={sweet.name}
                             description={sweet.description}
                             price={sweet.price}
