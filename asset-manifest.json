@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/order-sweets-app/static/css/main.6226f5ec.chunk.css",
+    "main.js": "/order-sweets-app/static/js/main.5ccbe1ed.chunk.js",
+    "main.js.map": "/order-sweets-app/static/js/main.5ccbe1ed.chunk.js.map",
+    "runtime-main.js": "/order-sweets-app/static/js/runtime-main.41128deb.js",
+    "runtime-main.js.map": "/order-sweets-app/static/js/runtime-main.41128deb.js.map",
+    "static/js/2.b25f2309.chunk.js": "/order-sweets-app/static/js/2.b25f2309.chunk.js",
+    "static/js/2.b25f2309.chunk.js.map": "/order-sweets-app/static/js/2.b25f2309.chunk.js.map",
+    "index.html": "/order-sweets-app/index.html",
+    "static/css/main.6226f5ec.chunk.css.map": "/order-sweets-app/static/css/main.6226f5ec.chunk.css.map",
+    "static/js/2.b25f2309.chunk.js.LICENSE.txt": "/order-sweets-app/static/js/2.b25f2309.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/order-sweets-app/static/media/cakesShelf.a4ec24a4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.41128deb.js",
+    "static/js/2.b25f2309.chunk.js",
+    "static/css/main.6226f5ec.chunk.css",
+    "static/js/main.5ccbe1ed.chunk.js"
+  ]
+}
