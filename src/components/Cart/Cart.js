@@ -6,10 +6,9 @@ import classes from "./Cart.module.css";
 
 export const Cart = (props) => {
     const cartCtx = useContext(CartContext);
-    console.log(cartCtx.totalAmount)
 
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
-    console.log(cartCtx)
+
     const hasItems = cartCtx.items.length > 0;
 
     const cartItemAddHandler = (item) => {

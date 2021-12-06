@@ -3,9 +3,8 @@ import { Input } from "../../UI/Input/Input";
 import classes from "./SweetItemForm.module.css";
 
 export const SweetItemForm = (props) => {
-    const amountInputRef = useRef();
-
     const [amountIsValid, setAmountIsValid] = useState(true);
+    const amountInputRef = useRef();
 
     const submitHandler = (event) => {
         event.preventDefault();

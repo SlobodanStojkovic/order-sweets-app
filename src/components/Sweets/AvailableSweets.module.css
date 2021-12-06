@@ -3,7 +3,7 @@
     width: 90%;
     margin: 2rem auto;
     animation: sweats-appear 1s ease-out forwards;
-    opacity: 90%;
+    opacity: 0.9;
 }
 
 .sweets ul {
