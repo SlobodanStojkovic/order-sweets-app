@@ -1,54 +1,75 @@
+import { useEffect, useState } from "react";
 import { Card } from "../UI/Card/Card";
 import classes from "./AvailableSweets.module.css";
 import { SweetItem } from "./SweetItem/SweetItem";
 
-const DUMMY_SWEETS = [
-    {
-        id: "sweet1",
-        name: "Chocolate cake",
-        description:
-            "Finest piece of chocolate cake and whipped cream decorated with ",
-        price: 14.99,
-    },
-    {
-        id: "sweet2",
-        name: "Hot chocolate Spheres",
-        description:
-            "Dark chocolate spheres filled with hot chocolate mix, marshmallows and chocolate chips",
-        price: 22.99,
-    },
-    {
-        id: "sweet3",
-        name: "Strawberry cake",
-        description:
-            "Vanilla sponge cake with fresh strawberries finished with whipped cream.",
-        price: 19.99,
-    },
-    {
-        id: "sweet4",
-        name: "Vanilla rum cake",
-        description:
-            "Fantastic Vanilla flavoured cake that is filled with black chocolate and rum",
-        price: 25.99,
-    },
-];
+export const AvailableSweets = () => {
+  const [sweets, setSweets] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [httpError, setHttpError] = useState(null);
 
-export const AvailableSweets = (props) => {
+  useEffect(() => {
+    const fetchSweets = async () => {
+      const response = await fetch(
+        "https://order-sweets-app-933e0-default-rtdb.firebaseio.com/sweets.json"
+      );
+
+      if (!response.ok) {
+        throw new Error("There was an error fetching the data from server!");
+      }
+      const responseData = await response.json();
+
+      const loadedSweets = [];
+      //key is sweet1, sweet2, sweet3...
+      for (const key in responseData) {
+        loadedSweets.push({
+          id: key,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
+        });
+      }
+
+      setSweets(loadedSweets);
+      setIsLoading(false);
+    };
+
+    fetchSweets().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
+  }, []);
+
+  if (isLoading) {
     return (
-        <section className={classes.sweets}>
-            <Card>
-                <ul>
-                    {DUMMY_SWEETS.map((sweet) => (
-                        <SweetItem
-                            key={sweet.id}
-                            id={sweet.id}
-                            name={sweet.name}
-                            description={sweet.description}
-                            price={sweet.price}
-                        />
-                    ))}
-                </ul>
-            </Card>
-        </section>
+      <section className={classes.sweetsLoading}>
+        <p>Loading...</p>
+      </section>
     );
+  }
+
+  if (httpError) {
+    return (
+      <section className={classes.sweetsError}>
+        <p>{httpError}</p>
+      </section>
+    );
+  }
+  return (
+    <section className={classes.sweets}>
+      <Card>
+        <ul>
+          {sweets.map((sweet) => (
+            <SweetItem
+              key={sweet.id}
+              id={sweet.id}
+              name={sweet.name}
+              description={sweet.description}
+              price={sweet.price}
+            />
+          ))}
+        </ul>
+      </Card>
+    </section>
+  );
 };
