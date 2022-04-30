@@ -4,4 +4,11 @@ This app is designed to allow its users to order their favorite sweets directly 
 
 Technologies used for creating this app are React, JavaScript ES6, HTML5, CSS3. In this app you can also see that it uses React Context, CSS Modules and that it has implemented backend functionalities like fetching data from the server and sending data to the server.
 
-![Site preview](https://slobodanstojkovic.github.io/my-portfolio/static/media/sweetPleasures.2e93d3ff.png)
+Site Preview
+![Site preview](https://i.imgur.com/WmlE6Ly.jpeg)
+
+Order Preview
+![Order preview](https://i.imgur.com/2NeUQ6H.jpeg)
+
+User Verification - before sending data to backend
+![User verification](https://i.imgur.com/tLKEAV3.jpeg)
